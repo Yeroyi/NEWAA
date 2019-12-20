@@ -44,4 +44,7 @@ dependencies {
     //轮播
     implementation 'com.youth.banner:banner:1.4.9'
     implementation files('libs/fastjson-1.2.2.jar')
+
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.1.0'
+    implementation 'com.github.iielse:ImageWatcher:1.1.5'
 }
