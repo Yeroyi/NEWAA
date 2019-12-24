@@ -57,12 +57,12 @@ public class DynamicFragment extends Fragment {
         iniView();
         inidata();
         iniTable();
-
-
         return view;
     }
 
     private void inidata() {
+
+
 
     }
 
@@ -88,11 +88,8 @@ public class DynamicFragment extends Fragment {
 
             @Override
             public void onResponse(String response, String type) {
-                //    wetherbeans = JSON.parseArray(response, wetherbean.class);
                 LableBean lableBean = JSON.parseObject(response, LableBean.class);
                 tagsByUid = lableBean.getTagsByUid();
-
-
                 fragmAdapterR.addItem(lableBean.getTagsByUid());
                 Vp_Viewpager.setAdapter(fragmAdapterR);
                 taxblayout.setupWithViewPager(Vp_Viewpager);

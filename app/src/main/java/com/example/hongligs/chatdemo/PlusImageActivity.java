@@ -1,24 +1,17 @@
 package com.example.hongligs.chatdemo;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-
 import com.example.hongligs.R;
-
 import java.util.ArrayList;
-
 public class PlusImageActivity extends AppCompatActivity {
-
     private ArrayList<String> imgList;
     private int mPosition;
     private TitleBar mTitle;
     private ViewPager viewPager;
     private ViewPagerAdapter mAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +32,6 @@ public class PlusImageActivity extends AppCompatActivity {
                 //                执行删除的逻辑
             }
         });
-
         mAdapter = new ViewPagerAdapter(this, imgList);
         viewPager.setAdapter(mAdapter);
 //        positionTv.setText(mPosition + 1 + "/" + imgList.size());
@@ -76,8 +68,6 @@ public class PlusImageActivity extends AppCompatActivity {
         setResult(MainConstant.RESULT_CODE_VIEW_IMG, intent);
         finish();
     }
-
-
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -88,3 +78,4 @@ public class PlusImageActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 }
+//

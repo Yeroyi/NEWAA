@@ -3,6 +3,7 @@ package com.example.hongligs.fragment;
 
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,6 +67,7 @@ public class DTRecommendFragment extends Fragment {
     }
 
     private void iniData() {
+        Log.e("DTR","iniData");
         //这是用的网络框架
         Map<String, String> map = new HashMap<>();
         Bundle arguments = getArguments();
@@ -79,89 +81,90 @@ public class DTRecommendFragment extends Fragment {
 
             @Override
             public void onFailure(IOException e) {
-
+                Log.e("DTR","onFailure");
             }
 
             @Override
             public void onResponse(String response, String type) {
-
+                Log.e("DTR","response"+response);
                 remmondBean = JSON.parseObject(response, RemmondBean.class);
                 dlist = remmondBean.getDlist();
-                if(remmodAdapter==null){
                     remmodAdapter = new RemmodAdapter(getActivity(), dlist);
                     staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
                     mRecyview.setLayoutManager(staggeredGridLayoutManager);
                     mRecyview.setAdapter(remmodAdapter);
-                }else {
+
                     remmodAdapter.notifyDataSetChanged();
                 }
 
-            }
+
         }, "");
 
 
     }
 
     private void iniView() {
+
+        Log.e("DTR","iniView");
         mRecyview = inflate.findViewById(R.id.mRecyview);
         fragment_consultation_ptrr= inflate.findViewById(R.id.fragment_consultation_ptrr);
 
 
-//        //刷新的代码
+        //刷新的代码
+
+        //      分割线用
+        mRecyview.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
+        mRecyview.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+
+//        / /头部阻尼系数
+        fragment_consultation_ptrr.setResistanceHeader(1.7f);
+// 底部阻尼系数
+        fragment_consultation_ptrr.setResistanceFooter(1.7f);
+// 默认1.2f，移动达到头部高度1.2倍时触发刷新操作
+        fragment_consultation_ptrr.setRatioOfHeaderHeightToRefresh(1.2f);
+// 头部回弹时间
+        fragment_consultation_ptrr.setDurationToCloseHeader(1000);
+// 底部回弹时间
+        fragment_consultation_ptrr.setDurationToCloseFooter(1000);
+// 释放刷新
+        fragment_consultation_ptrr.setPullToRefresh(false);
+// 释放时恢复到刷新状态的时间
+        fragment_consultation_ptrr.setDurationToBackHeader(200);
+        fragment_consultation_ptrr.setDurationToBackFooter(200);
+
+
+        // ------------------------------  刷新方法-----------------------------------
+
+        PtrClassicListHeader header = new PtrClassicListHeader(getContext());
+        header.setLastUpdateTimeRelateObject(this);
+        PtrClassicListFooter footer = new PtrClassicListFooter(getContext());
+        footer.setLastUpdateTimeRelateObject(this);
+        fragment_consultation_ptrr.setFooterView(footer);
+        fragment_consultation_ptrr.addPtrUIHandler(footer);
 //
-//        //      分割线用
-//        mRecyview.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
-//        mRecyview.setLayoutManager(new LinearLayoutManager(getActivity()));
-//
-//
-////        / /头部阻尼系数
-//        fragment_consultation_ptrr.setResistanceHeader(1.7f);
-//// 底部阻尼系数
-//        fragment_consultation_ptrr.setResistanceFooter(1.7f);
-//// 默认1.2f，移动达到头部高度1.2倍时触发刷新操作
-//        fragment_consultation_ptrr.setRatioOfHeaderHeightToRefresh(1.2f);
-//// 头部回弹时间
-//        fragment_consultation_ptrr.setDurationToCloseHeader(1000);
-//// 底部回弹时间
-//        fragment_consultation_ptrr.setDurationToCloseFooter(1000);
-//// 释放刷新
-//        fragment_consultation_ptrr.setPullToRefresh(false);
-//// 释放时恢复到刷新状态的时间
-//        fragment_consultation_ptrr.setDurationToBackHeader(200);
-//        fragment_consultation_ptrr.setDurationToBackFooter(200);
-//
-//
-//        // ------------------------------  刷新方法-----------------------------------
-//
-//        PtrClassicListHeader header = new PtrClassicListHeader(getContext());
-//        header.setLastUpdateTimeRelateObject(this);
-//        PtrClassicListFooter footer = new PtrClassicListFooter(getContext());
-//        footer.setLastUpdateTimeRelateObject(this);
-//        fragment_consultation_ptrr.setFooterView(footer);
-//        fragment_consultation_ptrr.addPtrUIHandler(footer);
-////
-//        fragment_consultation_ptrr.setHeaderView(header);
-//        fragment_consultation_ptrr.addPtrUIHandler(header);
-//
-//        fragment_consultation_ptrr.setPtrHandler(new PtrDefaultHandler2() {
-//            @Override
-//            public void onLoadMoreBegin(PtrFrameLayout frame) {
-//                //上拉加载
-//                pagenum++;  //++
-//                iniData();
-//                fragment_consultation_ptrr.refreshComplete();
-//            }
-//
-//            @Override
-//            public void onRefreshBegin(PtrFrameLayout frame) {
-//                // 下拉刷新
-//                pagenum = 1;
-//                dlist.clear(); //清空集合
-//
-//                iniData();
-//                fragment_consultation_ptrr.refreshComplete();
-//            }
-//        });
+        fragment_consultation_ptrr.setHeaderView(header);
+        fragment_consultation_ptrr.addPtrUIHandler(header);
+
+        fragment_consultation_ptrr.setPtrHandler(new PtrDefaultHandler2() {
+            @Override
+            public void onLoadMoreBegin(PtrFrameLayout frame) {
+                //上拉加载
+                pagenum++;  //++
+                iniData();
+                fragment_consultation_ptrr.refreshComplete();
+            }
+
+            @Override
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                // 下拉刷新
+                pagenum = 1;
+                dlist.clear(); //清空集合
+
+                iniData();
+                fragment_consultation_ptrr.refreshComplete();
+            }
+        });
         }
 
 }

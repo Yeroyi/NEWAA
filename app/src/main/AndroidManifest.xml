@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".chatdemo.PlusImageActivity"></activity>
+        <activity android:name=".activity.GropCardActivity"></activity>
+        <activity android:name=".activity.DTdetailpageActivity" />
+        <activity android:name=".chatdemo.PlusImageActivity" />
         <activity android:name=".activity.ReleaseDynamicActivity" /> <!-- 启动的页面 -->
         <activity android:name=".activity.MainActivity">
             <intent-filter>
@@ -22,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.LoginActivity"></activity>
+        <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.SexActivity" />
         <activity android:name=".activity.WelcomActivity" />
         <activity android:name=".activity.ChooseCircleActivity" />
@@ -30,8 +32,7 @@
         <activity android:name=".activity.SecondchoiceActivity" />
         <activity android:name=".activity.StartActivity" />
         <activity android:name=".activity.HomePageActivity" />
-        <activity android:name=".activity.ScreenActivity" />
-        <!--解决7.0照相机崩溃问题-->
+        <activity android:name=".activity.ScreenActivity" /> <!-- 解决7.0照相机崩溃问题 -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"

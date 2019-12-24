@@ -27,13 +27,18 @@ public class URL {
 
     //动态标签Dynamic tbel
    public static final String DYNAMICLABLE= HTTP_DOMAIN + "usertags/getTagsByUid" ;
-   // public static final String DYNAMICLABLE=  "http://t.weather.sojson.com/api/weather/city/101220101" ;
-    //http://t.weather.sojson.com/api/weather/city/101220101
+
     //动态列表
     public static final String ListOF= HTTP_DOMAIN + "dynamic/getListBytags" ;
 
     // 首页推荐
     public static final String Recommend= HTTP_DOMAIN + "dynamic/getListBytags" ;
+
+    //交友扩利
+    public static final String DatingEnlargement= HTTP_DOMAIN + "circle/circleList" ;
+
+    //群资料banner
+    public static final String GroupBanner= HTTP_DOMAIN + "circle/getCircle" ;
 
 
 

@@ -7,21 +7,37 @@
 
     <LinearLayout
         android:id="@+id/live_linlayout"
-        android:layout_width="105dp"
-        android:layout_height="35dp"
-        android:background="#CCC5C5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_marginTop="@dimen/dp_12"
+            android:scaleType="fitXY"
+            android:id="@+id/Image_shaixuan"
+            android:layout_width="@dimen/dp_148"
+            android:layout_height="@dimen/dp_90"
+            android:src="@drawable/ic_launcher_background"
+            />
         <TextView
+            android:layout_marginTop="@dimen/dp_10"
             android:id="@+id/text_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:singleLine="false"
+            android:textColor="#18181B"
+            android:textSize="@dimen/sp_14" />
+        <TextView
+            android:id="@+id/text_number"
             android:textColor="#C6CCD4"
-            android:textSize="13sp" />
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1234"
+            />
 
     </LinearLayout>
 </LinearLayout>

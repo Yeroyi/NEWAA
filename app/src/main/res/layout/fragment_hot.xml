@@ -4,22 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#A71717"
     tools:context=".fragment.HotFragment">
 
-    <com.androidkun.xtablayout.XTabLayout
-        android:id="@+id/taxsblayout"
+    <ListView
+        android:layout_marginTop="@dimen/dp_20"
+        android:id="@+id/listview"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"/>
-<androidx.viewpager.widget.ViewPager
-    android:id="@+id/Vp_Viewpager"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="1"
-    />
+        android:layout_height="match_parent" />
 
-    />
 
 </LinearLayout>

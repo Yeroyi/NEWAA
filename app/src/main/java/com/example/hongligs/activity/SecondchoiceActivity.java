@@ -71,8 +71,6 @@ public class SecondchoiceActivity extends AppCompatActivity {
     private void initView() {
         listView = findViewById(R.id.listview);
 
-
-
     }
 
 }

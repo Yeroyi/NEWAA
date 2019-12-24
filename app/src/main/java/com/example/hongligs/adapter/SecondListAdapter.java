@@ -1,15 +1,19 @@
 package com.example.hongligs.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.hongligs.R;
+import com.example.hongligs.activity.GropCardActivity;
 import com.example.hongligs.bean.SecondChoice;
 
 import java.util.List;
@@ -71,14 +75,21 @@ public class SecondListAdapter extends BaseAdapter {
 
     }
 
-    // 起个名字adapter
-
-
     class Gridadapter extends BaseAdapter {
 
         private List<SecondChoice.TaglistBean.ClistBean> clist;
 
         private Context context;
+
+
+        //定义接口
+        private OnItemClickListener mOnItemClick;
+
+        public void setOnItemClick(OnItemClickListener mOnItemClick) {
+            this.mOnItemClick = mOnItemClick;
+        }
+
+
 
         public Gridadapter(List<SecondChoice.TaglistBean.ClistBean> clist, Context context) {
             this.clist = clist;
@@ -110,6 +121,8 @@ public class SecondListAdapter extends BaseAdapter {
                 view = View.inflate(context, R.layout.grid_adapter, null);
                 holder.live_linlayout = view.findViewById(R.id.live_linlayout);
                 holder.text_name = view.findViewById(R.id.text_name);
+                holder.text_number = view.findViewById(R.id.text_number);
+                holder.Image_shaixuan = view.findViewById(R.id.Image_shaixuan);
 
                 view.setTag(holder);
             } else {
@@ -117,6 +130,16 @@ public class SecondListAdapter extends BaseAdapter {
             }
 
             holder.text_name.setText(clist.get(i).getName());//
+            holder.text_number.setText(clist.get(i).getPersonnum()+"");
+            Glide.with(context).load(clist.get(i).getIcon()).into(holder.Image_shaixuan);
+
+            holder.Image_shaixuan.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, GropCardActivity.class);
+                    context.startActivity(intent);
+                }
+            });
             return view;
         }
 
@@ -124,7 +147,12 @@ public class SecondListAdapter extends BaseAdapter {
 
             LinearLayout live_linlayout;
             TextView text_name;
+            TextView text_number;
+            ImageView Image_shaixuan;
         }
+    }
+    public interface OnItemClickListener {
+        void onClick(int position);
     }
 }
 

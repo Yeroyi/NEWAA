@@ -41,7 +41,7 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  *
- *  名字叫啥算了  你改主页面这个吧 主页面我是粘贴你这个页面的代码
+ *
  */
 public class HomepageFragment extends Fragment implements OnBannerListener, View.OnClickListener, ViewPager.OnPageChangeListener {
 
@@ -121,6 +121,7 @@ public class HomepageFragment extends Fragment implements OnBannerListener, View
                     list_path.add(bannerbeans.get(i).getUrl());
                     list_title.add(bannerbeans.get(i).getId());
                 }
+
                 Log.d(" list_path.size();", list_path.size() + "");
                 initBanner();
             }

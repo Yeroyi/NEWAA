@@ -11,6 +11,13 @@
         <attr name="show_bottom_line" format="boolean" />
         <attr name="menu_icon" format="reference" />
         <attr name="enable_menu" format="boolean" />
+
+
     </declare-styleable>
+
+        <declare-styleable name="CircleImageView">
+            <attr name="border_width" format="dimension" />
+            <attr name="border_color" format="color" />
+        </declare-styleable>
 
 </resources>
