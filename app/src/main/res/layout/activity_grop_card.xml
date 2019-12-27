@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:context=".activity.GropCardActivity">
 
 <FrameLayout
@@ -20,21 +21,22 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_180">
 
-        <ImageButton
+        <ImageView
+
             android:layout_marginTop="@dimen/dp_10"
             android:layout_marginLeft="@dimen/dp_16"
             android:layout_width="@dimen/dp_24"
             android:layout_height="@dimen/dp_24"
-            android:src="@drawable/ic_back"
+            android:src="@mipmap/one"
             />
 
-        <ImageButton
+        <ImageView
             android:layout_marginTop="@dimen/dp_10"
             android:layout_marginRight="@dimen/dp_16"
             android:layout_width="@dimen/dp_24"
             android:layout_alignParentRight="true"
             android:layout_height="@dimen/dp_24"
-            android:src="@drawable/ic_back"
+            android:src="@mipmap/share"
             />
     </RelativeLayout>
 
@@ -71,11 +73,130 @@
         android:text="123"
         />
     <TextView
-        android:textColor="#ffffff"
+        android:id="@+id/text_jiaoy"
+        android:background="@mipmap/pink"
         android:textSize="@dimen/sp_12"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="交友扩利额"
+        android:text="交友扩利"
         />
+    <LinearLayout
+
+        android:layout_marginTop="@dimen/dp_20"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="@dimen/dp_120"
+        android:layout_height="@dimen/dp_60">
+
+        <TextView
+            android:id="@+id/text_number"
+            android:textSize="@dimen/sp_20"
+            android:textColor="#171E2A"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            />
+        <TextView
+            android:textSize="@dimen/sp_14"
+            android:textColor="#C6CCD4"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="人数"
+            />
+    </LinearLayout>
+        <LinearLayout
+
+            android:orientation="vertical"
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="@dimen/dp_60"
+            >
+
+            <TextView
+                android:id="@+id/text_hyd"
+                android:textSize="@dimen/sp_20"
+                android:textColor="#171E2A"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="29145"
+                />
+            <TextView
+                android:textSize="@dimen/sp_14"
+                android:textColor="#C6CCD4"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="活跃度"
+                />
+        </LinearLayout>
+        <LinearLayout
+
+            android:orientation="vertical"
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="@dimen/dp_60">
+
+            <TextView
+                android:id="@+id/text_party"
+                android:textSize="@dimen/sp_20"
+                android:textColor="#171E2A"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="29145"
+                />
+            <TextView
+                android:textSize="@dimen/sp_14"
+                android:textColor="#C6CCD4"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="聚会"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/dp_280"
+        android:layout_height="@dimen/dp_68">
+<TextView
+    android:textSize="@dimen/sp_14"
+    android:textColor="#171E2A"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="公告: "
+    />
+        <TextView
+            android:id="@+id/text_gongago"
+            android:textSize="@dimen/sp_14"
+            android:textColor="#3E424E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公告:vvvvvvvvvvvvvvvv
+            vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"
+            />
+
+
+    </LinearLayout>
+    <Button
+        android:layout_marginBottom="@dimen/dp_40"
+        android:id="@+id/bt_enjoy"
+        android:layout_width="@dimen/dp_279"
+        android:layout_height="@dimen/dp_54"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/round_blackbk"
+        android:gravity="center"
+        android:text="加入群聊"
+        android:textIsSelectable="true"
+        android:textSize="15sp"
+        android:visibility="visible" />
 </LinearLayout>

@@ -3,10 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.TodayFragment">
+    android:orientation="vertical"
+    android:background="#EFF1F4"
+    tools:context=".fragment.TreeFragment">
 
-
-
+    <ImageView
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_200"
+        android:src="@mipmap/trbg"
+        />
     <com.example.hongligs.bean.PtrClassicRefreshLayout
         android:id="@+id/fragment_consultation_ptr"
         android:layout_width="match_parent"

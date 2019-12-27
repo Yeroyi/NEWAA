@@ -86,7 +86,6 @@
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
         android:background="@drawable/round_edhint"
-
         android:gravity="center"
         android:text="登录"
         android:textIsSelectable="true"

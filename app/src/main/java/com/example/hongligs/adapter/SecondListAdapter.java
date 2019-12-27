@@ -112,7 +112,7 @@ public class SecondListAdapter extends BaseAdapter {
         }
 
         @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
+  final   public View getView(final int i, View view, ViewGroup viewGroup) {
 
             ViewHolder holder;
             if (view == null) {
@@ -133,17 +133,18 @@ public class SecondListAdapter extends BaseAdapter {
             holder.text_number.setText(clist.get(i).getPersonnum()+"");
             Glide.with(context).load(clist.get(i).getIcon()).into(holder.Image_shaixuan);
 
-            holder.Image_shaixuan.setOnClickListener(new View.OnClickListener() {
+           holder.Image_shaixuan.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, GropCardActivity.class);
+                    intent.putExtra("clist",clist.get(i).getId());
                     context.startActivity(intent);
                 }
             });
             return view;
         }
 
-        class ViewHolder {
+         class ViewHolder {
 
             LinearLayout live_linlayout;
             TextView text_name;

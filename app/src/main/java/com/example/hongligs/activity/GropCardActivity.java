@@ -1,6 +1,7 @@
 package com.example.hongligs.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -41,14 +42,23 @@ public class GropCardActivity extends AppCompatActivity implements OnBannerListe
    private List<String> bglist = new ArrayList<>();
     private TextView text_yanzhi;
     private TextView text_qiamming;
+    private TextView text_number;
+    private TextView text_hyd;
+    private TextView text_party;
+    private TextView text_jiaoy;
+    private TextView text_gongago;
     private ImageView Image_icon;
     private Bitmap bitmap;
+    private String name;
+    private String clist;
 
     //群资料卡
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grop_card);
+        clist = getIntent().getStringExtra("clist");
+
 
         initView();
         inidata();
@@ -56,7 +66,7 @@ public class GropCardActivity extends AppCompatActivity implements OnBannerListe
 
     private void inidata( ) {
         Map<String, String> map = new HashMap<>();
-        map.put("cid", "c2");
+        map.put("cid",clist);
 
         OkHttpUtils.getInstance(this).postMap(URL.GroupBanner, map, new NetCallBack() {
 
@@ -74,26 +84,25 @@ public class GropCardActivity extends AppCompatActivity implements OnBannerListe
                 String name = circle.getName();
                 String title = circle.getTitle();
                 String icon = circle.getIcon();
+                String tag = circle.getTag();
+                int personnum = circle.getPersonnum();//人数
+                int hot = circle.getHot();//热度
+                int party = circle.getParty();
+                String bulletin = circle.getBulletin();//公告
+
+
                 Log.e("icon",icon);
+                //画圆形图片
                 Glide.with(getApplicationContext()).load(icon).into(Image_icon);
 
                 Uri parse = Uri.parse(circle.getIcon());
-
-
-//                try {
-//                    bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(parse));
-//                    if (bitmap==null){
-//
-//                        return;
-//                    }
-//                    Image_icon.setImageBitmap(bitmap);
-//                } catch (FileNotFoundException e) {
-//                    e.printStackTrace();
-//                }
-
-
                 text_yanzhi.setText(name);
                 text_qiamming.setText(title);
+                text_number.setText(personnum+"");
+                text_hyd.setText(hot+"");
+                text_party.setText(party+"");
+                text_gongago.setText(bulletin);
+                text_jiaoy.setText(tag);
 
 
                 for (int i = 0; i < circle.getBglist().size(); i++) {
@@ -136,6 +145,11 @@ public class GropCardActivity extends AppCompatActivity implements OnBannerListe
         mbanner = (Banner) findViewById(R.id.mbanner);
         text_yanzhi = (TextView) findViewById(R.id.text_yanzhi);
         text_qiamming = (TextView) findViewById(R.id.text_qiamming);
+        text_number = (TextView) findViewById(R.id.text_number);
+        text_hyd = (TextView) findViewById(R.id.text_hyd);
+        text_jiaoy = (TextView) findViewById(R.id.text_jiaoy);
+        text_gongago = (TextView) findViewById(R.id.text_gongago);
+        text_party = (TextView) findViewById(R.id.text_party);
         Image_icon = (ImageView) findViewById(R.id.Image_icon);
     }
 

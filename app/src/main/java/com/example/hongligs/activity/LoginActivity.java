@@ -18,7 +18,6 @@ import com.example.hongligs.http.OkHttpUtils;
 import com.example.hongligs.http.URL;
 import com.example.hongligs.utils.SPManager;
 import com.google.gson.Gson;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -66,7 +65,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     Log.d("userId==", uid);
                     //请求成功以后：把后台反给的uid保存起来
                     SPManager.setUid(LoginActivity.this, uid);//第二个参数填后台的值
-
                     Intent intent = new Intent(LoginActivity.this, SexActivity.class);
                     startActivity(intent);
 

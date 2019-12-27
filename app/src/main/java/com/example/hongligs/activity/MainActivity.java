@@ -19,7 +19,7 @@ import com.example.hongligs.R;
 import com.example.hongligs.app.BaseActivity;
 import com.example.hongligs.fragment.HomepageFragment;
 import com.example.hongligs.fragment.SettingFragment;
-import com.example.hongligs.fragment.TodayFragment;
+import com.example.hongligs.fragment.TreeFragment;
 import com.example.hongligs.fragment.TongxunluFragment;
 
 import java.util.ArrayList;
@@ -67,7 +67,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mFargment = new ArrayList<>();
         HomepageFragment homepageFragment = new HomepageFragment();
         TongxunluFragment tongxunluFragment = new TongxunluFragment();
-        TodayFragment todayFragment = new TodayFragment();
+        TreeFragment todayFragment = new TreeFragment();
         SettingFragment settingFragment = new SettingFragment();
         mFargment.add(homepageFragment);
         mFargment.add(tongxunluFragment);

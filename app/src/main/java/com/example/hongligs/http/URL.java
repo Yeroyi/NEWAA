@@ -9,6 +9,7 @@ public class URL {
     public static final String MESSAGE = HTTP_DOMAIN + "user/getSMSCode";
     // 首页Banner
     public static final String BANNER = HTTP_DOMAIN + "base/getBanner";
+   //public static final String BANNER =  "http://honglilongchuang.cn:8888/base/getBanner";
 
     // 挑选年代
     public static final String XTime = HTTP_DOMAIN + "dicts/getList" ;
@@ -40,13 +41,8 @@ public class URL {
     //群资料banner
     public static final String GroupBanner= HTTP_DOMAIN + "circle/getCircle" ;
 
-
-
-
-
-
-
-
+    //树洞
+    public static final String TreeHole= HTTP_DOMAIN + "hollow/getList" ;
 
 
 }

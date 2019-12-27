@@ -53,7 +53,7 @@ public class HotFragment extends Fragment {
     }
 
     private void inidata() {
-// 二次筛选圈子
+
         Map<String, String> map = new HashMap<>();
 
         OkHttpUtils.getInstance(getActivity()).postMap(URL.SENDCHIOCED, map, new NetCallBack() {
@@ -68,7 +68,6 @@ public class HotFragment extends Fragment {
 
                 SecondChoice secondChoice = JSON.parseObject(response, SecondChoice.class);
                 taglist.addAll(secondChoice.getTaglist());
-
 
                 if (secondListAdapter==null){
                     secondListAdapter = new SecondListAdapter(taglist, getActivity());

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.hongligs.R;
+import com.example.hongligs.bean.TreeBean;
 import com.example.hongligs.fragment.wetherbean;
 
 import java.util.ArrayList;
@@ -19,15 +20,19 @@ import java.util.List;
 
 
 public class RecyAdapter extends RecyclerView.Adapter<RecyAdapter.ViewHolder> {
-//https://www.wanandroid.com/banner/json
+
 
     private Context context;
-    List<wetherbean.DataBean.ForecastBean> forecast;
 
-    public RecyAdapter(Context context, List<wetherbean.DataBean.ForecastBean> forecast) {
+    public RecyAdapter(Context context, List<TreeBean.HollowlistBean> hollowlist) {
         this.context = context;
-        this.forecast = forecast;
+        this.hollowlist = hollowlist;
     }
+
+    //List<wetherbean.DataBean.ForecastBean> forecast;
+    private List<TreeBean.HollowlistBean> hollowlist;
+
+
 
     @NonNull
     @Override
@@ -40,28 +45,34 @@ public class RecyAdapter extends RecyclerView.Adapter<RecyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
        holder.itemView.setTag(position);
-        holder.Tv_text.setText(forecast.get(position).getNotice());
-        holder.Tv_title.setText(forecast.get(position).getWeek());
+
+        holder.Tv_name.setText(hollowlist.get(position).getUname());
+        holder.Tv_content.setText(hollowlist.get(position).getContent());
+        holder.Tv_nuber.setText(hollowlist.get(position).getPlnum()+"");
+        holder.Tv_time.setText(hollowlist.get(position).getTime()+"");
 
     }
 
     @Override
     public int getItemCount() {
-        return forecast.size();
+        return hollowlist.size();
     }
 
 
     class  ViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView Tv_title;
-        public TextView Tv_text;
-        public ImageView Image_1;
+        public TextView Tv_name;
+        public TextView Tv_content;
+        public TextView Tv_time;
+        public TextView Tv_nuber;
 
         public ViewHolder(@NonNull View itemView) {
            super(itemView);
-           Image_1 =  itemView.findViewById(R.id.Image_1);
-            Tv_title = itemView.findViewById(R.id.Tv_title);
-            Tv_text =  itemView.findViewById(R.id.Tv_text);
+
+            Tv_name = itemView.findViewById(R.id.Tv_name);
+            Tv_time = itemView.findViewById(R.id.Tv_time);
+            Tv_nuber = itemView.findViewById(R.id.Tv_nuber);
+            Tv_content =  itemView.findViewById(R.id.Tv_content);
 
        }
    }
